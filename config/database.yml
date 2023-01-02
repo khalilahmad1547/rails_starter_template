@@ -17,13 +17,17 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  host: <%= ENV['DATABASE_HOST'] || localhost %>
+  port: <%= ENV['DATABASE_PORT'] || 5432 %>
+  username: <%= ENV['DEVELOPMENT_DATABASE_USRENAME'] || postgres %>
+  password: <%= ENV['DEVELOPMENT_DATABASE_PASSWORD'] || postgres %>
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  database: rails_starter_template_development
+  database: <%= ENV['DEVELOPMENT_DATABASE_NAME'] || rails_starter_database_dev %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,7 +61,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: rails_starter_template_test
+  database: <%= ENV['TEST_DATABASE_NAME'] || rails_starter_database_test %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -81,6 +85,8 @@ test:
 #
 production:
   <<: *default
-  database: rails_starter_template_production
-  username: rails_starter_template
-  password: <%= ENV["RAILS_STARTER_TEMPLATE_DATABASE_PASSWORD"] %>
+  host: <%= ENV['DATABASE_HOST'] || localhost %>
+  port: <%= ENV['DATABASE_PORT'] || 5432 %>
+  username: <%= ENV['PRODUCTION_DATABASE_USRENAME'] %>
+  password: <%= ENV['PRODUCTION_DATABASE_PASSWORD'] %>
+  database: <%= ENV['PRODUCTION_DATABASE_NAME'] || rails_starter_database_prod %>
