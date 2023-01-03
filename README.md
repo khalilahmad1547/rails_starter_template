@@ -1,24 +1,49 @@
-# README
+# Rails Starter Project
+This is a Rails 7 API only app with pre-configured database, ENV setup, authorization and authorization. It can be used for getting up and running with these features.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Routes
+* **POST** /signup
+  
+  Sign up link
 
-Things you may want to cover:
+  **Parameters**
 
-* Ruby version
+  ```
+  {
+    "user": {
+      "first_name": "",
+      "last_name": "",
+      "email":"",
+      "password": ""
+    }
+  }
+  ```
+  All parameters are required.
 
-* System dependencies
+* **POST** /login
+  
+  Login link
 
-* Configuration
+  **Parameters**
 
-* Database creation
+  Body
+  ```
+  {
+    "user": {
+      "email":"",
+      "password": ""
+    }
+  }
+  ```
+  All parameters are required.
 
-* Database initialization
+* **DELETE** /logout
+  
+  Sign Out link
 
-* How to run the test suite
+  **Parameters**
 
-* Services (job queues, cache servers, search engines, etc.)
+  Body is not required.
 
-* Deployment instructions
+  JWT token is required in Headers
 
-* ...
