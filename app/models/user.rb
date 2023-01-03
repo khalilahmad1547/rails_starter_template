@@ -14,4 +14,12 @@ class User < ApplicationRecord
   def jwt_payload
     super
   end
+
+  def admin?
+    role.name == Role::ADMIN_ROLE
+  end
+
+  def user?
+    role.name == Role::USER_ROLE
+  end
 end
