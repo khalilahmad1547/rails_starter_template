@@ -7,4 +7,8 @@ class User < ApplicationRecord
          :jwt_authenticatable, jwt_revocation_strategy: self
 
   validates_presence_of :first_name, :last_name
+
+  def jwt_payload
+    super
+  end
 end
