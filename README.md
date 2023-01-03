@@ -1,4 +1,10 @@
 # Rails Starter Project
+- [Rails Starter Project](#rails-starter-project)
+  - [Intro](#intro)
+  - [Routes](#routes)
+  - [Commands](#commands)
+
+## Intro
 This is a Rails 7 API only app with pre-configured database, ENV setup, authorization and authorization. It can be used for getting up and running with these features.
 
 ## Routes
@@ -47,3 +53,7 @@ This is a Rails 7 API only app with pre-configured database, ENV setup, authoriz
 
   JWT token is required in Headers
 
+## Commands
+Use the supplied generator to generate pundit policies:
+
+```rails g pundit:policy post```
