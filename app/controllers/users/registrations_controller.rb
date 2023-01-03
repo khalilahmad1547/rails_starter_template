@@ -7,10 +7,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   private
 
-  # POST /resource
-  # def create
-  #   super
-  # end
+  def respond_with(resource, _options = {})
+    if resource.persisted?
+      render json: {
+        status: { code: 200, message: 'Signed up successfully', data: UserSerializer.new(resource) }
+      }, status: :ok
+    else
+      puts resource.errors.full_messages
+      render json: { message: 'User could not be created successfull',
+                     errors: resource.errors.full_messages, status: :unprocessable_entity }
+    end
+  end
 
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name email password])
