@@ -1,4 +1,8 @@
+# frozen_string_literal: true
+
+# RolePolicy
 class RolePolicy < ApplicationPolicy
+  # Scope
   class Scope < Scope
     def resolve
       scope.all

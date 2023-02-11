@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   devise_for :users, path: '', path_names: {
                                  sign_in: 'login',
@@ -8,4 +10,5 @@ Rails.application.routes.draw do
                        sessions: 'users/sessions',
                        registrations: 'users/registrations'
                      }
+  draw :api_v0
 end

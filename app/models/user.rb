@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# User
 class User < ApplicationRecord
   include Devise::JWT::RevocationStrategies::JTIMatcher
 
@@ -10,10 +13,6 @@ class User < ApplicationRecord
   delegate :role, to: :user_role
 
   validates_presence_of :first_name, :last_name
-
-  def jwt_payload
-    super
-  end
 
   def admin?
     role.name == Role::ADMIN_ROLE
