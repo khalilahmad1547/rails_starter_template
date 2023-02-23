@@ -20,7 +20,7 @@ gem 'active_model_serializers'
 gem 'pg', '~> 1.1'
 
 # Use the Puma web server [https://github.com/puma/puma]
-gem 'puma', '~> 6.0'
+gem 'puma', '~> 6.1'
 
 # for Autharization
 gem 'pundit', '~> 2.3'
