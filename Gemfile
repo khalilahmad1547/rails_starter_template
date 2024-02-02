@@ -10,6 +10,8 @@ gem "pg", "~> 1.1"
 
 gem "puma", ">= 5.0"
 
+gem "figaro"
+
 gem "importmap-rails"
 
 gem "turbo-rails"
