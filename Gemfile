@@ -1,41 +1,45 @@
-source "https://rubygems.org"
+# frozen_string_literal: true
 
-ruby "3.2.2"
+source 'https://rubygems.org'
 
-gem "rails", "~> 7.1.3"
+ruby '3.2.2'
 
-gem "sprockets-rails"
+gem 'rails', '~> 7.1.3'
 
-gem "pg", "~> 1.1"
+gem 'sprockets-rails'
 
-gem "puma", ">= 5.0"
+gem 'pg', '~> 1.1'
 
-gem "figaro"
+gem 'puma', '>= 5.0'
 
-gem "importmap-rails"
+gem 'figaro'
 
-gem "turbo-rails"
+gem 'importmap-rails'
 
-gem "stimulus-rails"
+gem 'turbo-rails'
 
-gem "jbuilder"
+gem 'stimulus-rails'
 
-gem "redis", ">= 4.0.1"
+gem 'jbuilder'
+
+gem 'redis', '>= 4.0.1'
 # gem "kredis"
 
-gem "bcrypt", "~> 3.1.7"
+gem 'bcrypt', '~> 3.1.7'
 
-gem "tzinfo-data", platforms: %i[ windows jruby ]
+gem 'tzinfo-data', platforms: %i[windows jruby]
 
-gem "bootsnap", require: false
+gem 'bootsnap', require: false
 
 # gem "image_processing", "~> 1.2"
 
 group :development, :test do
-  gem "debug", platforms: %i[ mri windows ]
+  gem 'debug', platforms: %i[mri windows]
 end
 
 group :development do
-  gem "web-console"
+  gem 'rubocop', require: false
+  gem 'rubocop-rails', require: false
+  gem 'solargraph', require: false
+  gem 'web-console'
 end
-
