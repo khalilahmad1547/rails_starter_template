@@ -26,6 +26,7 @@ gem 'redis', '>= 4.0.1'
 # gem "kredis"
 
 gem 'bcrypt', '~> 3.1.7'
+gem 'devise', '~> 4.9'
 
 gem 'tzinfo-data', platforms: %i[windows jruby]
 
