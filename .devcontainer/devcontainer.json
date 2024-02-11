@@ -36,10 +36,13 @@
 				"redhat.vscode-yaml"
 			]
 		}
-	}
+	},
+	"mounts": [
+    "type=bind,source=${localEnv:HOME}/.ssh,target=/vscode/.ssh,readonly",
+]
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "bundle install && rake db:setup",
+	// "postCreateCommand": "su vscode -c cp -r $(eval echo '~')/.ssh/ ",
 
 	// Configure tool-specific properties.
 	// "customizations": {},

@@ -8,7 +8,6 @@ services:
 
     volumes:
       - ../..:/workspaces:cached
-
     command: sleep infinity
 
     network_mode: service:db
