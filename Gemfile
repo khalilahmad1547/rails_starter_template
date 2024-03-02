@@ -31,6 +31,8 @@ gem 'turbo-rails'
 
 gem 'stimulus-rails'
 
+gem 'sidekiq', '~> 7.2'
+
 gem 'redis', '>= 4.0.1'
 # gem "kredis"
 
