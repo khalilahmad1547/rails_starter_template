@@ -16,11 +16,13 @@ gem 'figaro'
 
 gem 'importmap-rails'
 
+# dry-rb gems
+gem 'dry-monads', '~> 1.6'
+gem 'dry-validation', '~> 1.10'
+
 gem 'turbo-rails'
 
 gem 'stimulus-rails'
-
-gem 'jbuilder'
 
 gem 'redis', '>= 4.0.1'
 # gem "kredis"
