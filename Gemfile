@@ -17,6 +17,7 @@ gem 'figaro'
 gem 'importmap-rails'
 
 # dry-rb gems
+gem 'dry-matcher', '~> 1.0'
 gem 'dry-monads', '~> 1.6'
 gem 'dry-validation', '~> 1.10'
 
