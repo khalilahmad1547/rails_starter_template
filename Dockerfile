@@ -9,7 +9,9 @@ ENV PORT=3000 \
     RAILS_ENV="production" \
     BUNDLE_DEPLOYMENT="1" \
     BUNDLE_PATH="/usr/local/bundle" \
-    BUNDLE_WITHOUT="development"
+    BUNDLE_WITHOUT="development:test" \
+    RAILS_SERVE_STATIC_FILES="true" \
+    RAILS_MASTER_KEY="your_master_key"
 
 
 FROM base as build
