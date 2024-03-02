@@ -10,6 +10,6 @@ class BaseService
   end
 
   def execute(id)
-    puts "** BaseService #{id}"
+    Rails.logger.debug { "** BaseService #{id}" }
   end
 end
