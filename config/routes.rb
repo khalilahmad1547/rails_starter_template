@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   mount ActionCable.server => '/cable'
+  mount Sidekiq::Web => '/sidekiq'
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
