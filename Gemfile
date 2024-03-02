@@ -20,6 +20,10 @@ gem 'importmap-rails'
 gem 'dry-monads', '~> 1.6'
 gem 'dry-validation', '~> 1.10'
 
+# for JSON responce
+gem 'blueprinter', '~> 0.25.3'
+gem 'oj'
+
 gem 'turbo-rails'
 
 gem 'stimulus-rails'
