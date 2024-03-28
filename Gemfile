@@ -31,13 +31,19 @@ gem 'turbo-rails'
 
 gem 'stimulus-rails'
 
+# for file storage
+gem 'shrine', '~> 2.6'
+
 gem 'sidekiq', '~> 7.2'
 
 gem 'redis', '>= 4.0.1'
 # gem "kredis"
 
+gem 'rack-cors'
+
 gem 'bcrypt', '~> 3.1.7'
 gem 'devise', '~> 4.9'
+gem 'jwt', '~> 2.8'
 
 gem 'tzinfo-data', platforms: %i[windows jruby]
 
