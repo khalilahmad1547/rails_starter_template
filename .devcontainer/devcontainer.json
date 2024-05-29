@@ -17,9 +17,7 @@
 	// This can be used to network with other containers or the host.
 	"forwardPorts": [
 		3000,
-		5432,
-		37905,
-		4200
+		5432
 	],
 	"customizations": {
 		"vscode": {
@@ -30,7 +28,6 @@
 				"shyykoserhiy.git-autoconfig",
 				"eamodio.gitlens",
 				"christian-kohler.path-intellisense",
-				"Shopify.ruby-lsp",
 				"castwide.solargraph",
 				"LoranKloeze.ruby-rubocop-revived",
 				"redhat.vscode-yaml",
