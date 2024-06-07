@@ -17,7 +17,7 @@ AllCops:
     - Capfile
     - Gemfile
     - Rakefile
-    - vendor/*/**
+    - vendor/**/*
 
 Gemspec/DeprecatedAttributeAssignment: # new in 1.30
   Enabled: true
