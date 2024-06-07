@@ -2,7 +2,8 @@
 
 module Api::V0
   class ApiController < ActionController::API
-    before_action :check_headers!, :decode_jwt!, :authenticate_current_user!
+    include DeviseTokenAuth::Concerns::SetUserByToken
+    before_action :authenticate_user!
 
     rescue_from StandardError do |exception|
       case exception.class.name
@@ -15,25 +16,6 @@ module Api::V0
 
     def process_standard_error(exception)
       render json: { errors: exception.message }, status: :internal_server_error
-    end
-
-    def check_headers!
-      unauthorized_response if request.headers['jwt'].blank?
-    end
-
-    def decode_jwt!
-      @data = JWT::Decoder.call({ token: request.headers['jwt'] })
-      unauthorized_response if @data.blank?
-    end
-
-    def current_user
-      return if @data.blank? || @data['user_id'].blank?
-
-      @current_user ||= User.find_by(id: @data['user_id'])
-    end
-
-    def authenticate_current_user!
-      unauthorized_response unless current_user
     end
 
     def unauthorized_response(reason = 'You are unauthorized to view this resource')

@@ -102,6 +102,10 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise_token_auth (1.2.3)
+      bcrypt (~> 3.0)
+      devise (> 3.5.2, < 5)
+      rails (>= 4.2.0, < 7.2)
     diff-lcs (1.5.1)
     down (5.4.2)
       addressable (~> 2.8)
@@ -124,7 +128,7 @@ GEM
       concurrent-ruby (~> 1.0)
       dry-core (~> 1.0, < 2)
       zeitwerk (~> 2.6)
-    dry-schema (1.13.3)
+    dry-schema (1.13.4)
       concurrent-ruby (~> 1.0)
       dry-configurable (~> 1.0, >= 1.0.1)
       dry-core (~> 1.0, < 2)
@@ -180,8 +184,6 @@ GEM
       reline (>= 0.4.2)
     jaro_winkler (1.5.6)
     json (2.7.2)
-    jwt (2.8.1)
-      base64
     kramdown (2.4.0)
       rexml
     kramdown-parser-gfm (1.1.0)
@@ -197,7 +199,7 @@ GEM
       net-smtp
     marcel (1.0.4)
     mini_mime (1.1.5)
-    minitest (5.23.0)
+    minitest (5.23.1)
     msgpack (1.7.2)
     mutex_m (0.2.0)
     net-imap (0.4.11)
@@ -268,14 +270,14 @@ GEM
     rainbow (3.1.1)
     rake (13.2.1)
     rbs (2.8.4)
-    rdoc (6.6.3.1)
+    rdoc (6.7.0)
       psych (>= 4.0.0)
     redis (5.2.0)
       redis-client (>= 0.22.0)
-    redis-client (0.22.1)
+    redis-client (0.22.2)
       connection_pool
     regexp_parser (2.9.2)
-    reline (0.5.7)
+    reline (0.5.8)
       io-console (~> 0.5)
     responders (3.1.1)
       actionpack (>= 5.2)
@@ -289,7 +291,7 @@ GEM
     rspec-expectations (3.13.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
-    rspec-mocks (3.13.0)
+    rspec-mocks (3.13.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
     rspec-rails (6.1.2)
@@ -369,6 +371,8 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2024.1)
+      tzinfo (>= 1.0.0)
     unicode-display_width (2.5.0)
     warden (1.2.9)
       rack (>= 2.0.9)
@@ -382,17 +386,17 @@ GEM
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
     yard (0.9.36)
-    zeitwerk (2.6.14)
+    zeitwerk (2.6.15)
 
 PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  bcrypt (~> 3.1.7)
   blueprinter (~> 1.0.2)
   bootsnap
   debug
   devise (~> 4.9)
+  devise_token_auth (~> 1.2, >= 1.2.3)
   dry-matcher (~> 1.0)
   dry-monads (~> 1.6)
   dry-validation (~> 1.10)
@@ -402,7 +406,6 @@ DEPENDENCIES
   haml (~> 6.3)
   html2haml
   importmap-rails
-  jwt (~> 2.8)
   oj
   pg (~> 1.5)
   puma (>= 5.0)

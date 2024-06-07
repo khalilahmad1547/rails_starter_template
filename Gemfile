@@ -41,11 +41,10 @@ gem 'redis', '>= 4.0.1'
 
 gem 'rack-cors'
 
-gem 'bcrypt', '~> 3.1.7'
 gem 'devise', '~> 4.9'
-gem 'jwt', '~> 2.8'
+gem 'devise_token_auth', '~> 1.2', '>= 1.2.3'
 
-gem 'tzinfo-data', platforms: %i[windows jruby]
+gem 'tzinfo-data'
 
 gem 'bootsnap', require: false
 

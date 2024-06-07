@@ -8,6 +8,16 @@ Style/ClassAndModuleChildren:
 
 AllCops:
     NewCops: enable
+    Exclude:
+    - bin/**/*
+    - contrib/**/*
+    - config/**/*
+    - db/**/*
+    - tmp/**/*
+    - Capfile
+    - Gemfile
+    - Rakefile
+    - vendor/**/*
 
 Gemspec/DeprecatedAttributeAssignment: # new in 1.30
   Enabled: true
