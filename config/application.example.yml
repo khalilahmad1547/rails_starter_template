@@ -11,3 +11,5 @@ development:
   DOMAIN: localhost:3000
   SMTP_USER_NAME: user_name
   SMTP_PASSWORD: user_name
+  STRIPE_PUBLISHABLE_KEY: ''
+  STRIPE_SECRET_KEY: ''

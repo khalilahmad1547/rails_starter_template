@@ -48,6 +48,9 @@ gem 'tzinfo-data'
 
 gem 'bootsnap', require: false
 
+# payments
+gem 'stripe', '~> 11.6'
+
 # gem "image_processing", "~> 1.2"
 
 group :development, :test do
