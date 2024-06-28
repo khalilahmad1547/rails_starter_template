@@ -5,6 +5,7 @@ ARG NODE_VERSION=20
 
 ENV DEBIAN_FRONTEND=noninteractive
 
+WORKDIR /app
 RUN apt-get update \
     && apt-get upgrade -y \
     && apt-get install -y --no-install-recommends \

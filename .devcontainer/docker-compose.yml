@@ -11,7 +11,8 @@ services:
 
     volumes:
       - ../..:/workspaces:cached
-    command: sleep infinity
+    # command: sleep infinity
+    entrypoint: ./entrypoint.sh
 
     network_mode: service:db
 
