@@ -4,9 +4,6 @@ FROM mcr.microsoft.com/vscode/devcontainers/base:ubuntu-22.04
 # The value is a comma-separated list of allowed domains.
 ENV RAILS_DEVELOPMENT_HOSTS=".githubpreview.dev,.preview.app.github.dev,.app.github.dev"
 
-# Memcached servers list.
-ENV MEMCACHE_SERVERS=memcached:11211
-
 # Install additional OS packages and PostgreSQL client.
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y upgrade \
