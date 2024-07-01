@@ -2,9 +2,6 @@
 
 module Api::V0
   class ApiController < ActionController::API
-    include DeviseTokenAuth::Concerns::SetUserByToken
-    before_action :authenticate_user!
-
     rescue_from StandardError do |exception|
       case exception.class.name
       when ActiveRecord::RecordInvalid.name then unprocessable_entity(exception.message)
