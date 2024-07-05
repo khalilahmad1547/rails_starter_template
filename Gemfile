@@ -41,9 +41,7 @@ gem 'redis', '>= 4.0.1'
 
 gem 'rack-cors'
 
-# for auth
 gem 'devise', '~> 4.9'
-gem 'jwt', '~> 2.8', '>= 2.8.2'
 gem 'omniauth', '~> 2.1', '>= 2.1.2'
 gem 'omniauth-google-oauth2', '~> 1.1', '>= 1.1.2'
 gem 'omniauth-rails_csrf_protection', '~> 1.0', '>= 1.0.2'
