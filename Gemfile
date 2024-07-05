@@ -42,6 +42,9 @@ gem 'redis', '>= 4.0.1'
 gem 'rack-cors'
 
 gem 'devise', '~> 4.9'
+gem 'omniauth', '~> 2.1', '>= 2.1.2'
+gem 'omniauth-google-oauth2', '~> 1.1', '>= 1.1.2'
+gem 'omniauth-rails_csrf_protection'
 
 gem 'tzinfo-data'
 
