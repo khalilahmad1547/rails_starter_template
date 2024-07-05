@@ -445,7 +445,7 @@ DEPENDENCIES
   oj
   omniauth (~> 2.1, >= 2.1.2)
   omniauth-google-oauth2 (~> 1.1, >= 1.1.2)
-  omniauth-rails_csrf_protection
+  omniauth-rails_csrf_protection (~> 1.0, >= 1.0.2)
   pg (~> 1.5)
   puma (>= 5.0)
   rack-cors
