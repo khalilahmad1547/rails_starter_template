@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-class AuthenticatedController < ApplicationController
+class ProtectedController < ApplicationController
   before_action :authenticate_user!
 end
