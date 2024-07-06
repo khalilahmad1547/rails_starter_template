@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  include DeviseTokenAuth::Concerns::User
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -18,5 +19,9 @@ class User < ApplicationRecord
       user.name = data.name
       user.avatar_url = data.image
     end
+  end
+
+  def confirmed_at
+    Time.now.utc
   end
 end
