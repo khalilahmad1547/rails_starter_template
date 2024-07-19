@@ -10,7 +10,6 @@ AllCops:
     NewCops: enable
     Exclude:
     - bin/**/*
-    - spec/**/*
     - contrib/**/*
     - config/**/*
     - db/**/*
