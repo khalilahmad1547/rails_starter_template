@@ -46,5 +46,9 @@ module ApplicationService
     def contract
       self.class.const_get(:Contract)
     end
+
+    def error_message(key, error)
+      { key => [error] }
+    end
   end
 end
