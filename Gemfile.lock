@@ -459,6 +459,7 @@ DEPENDENCIES
   haml (~> 6.3)
   html2haml
   importmap-rails
+  jwt (~> 2.8, >= 2.8.2)
   oj
   omniauth (~> 2.1, >= 2.1.2)
   omniauth-google-oauth2 (~> 1.1, >= 1.1.2)
