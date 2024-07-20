@@ -10,6 +10,9 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :email, format: { with: /\A([^\s]+)((?:[-a-z0-9]\.)[a-z]{2,})\z/i }
 
+  has_many :refresh_tokens, dependent: :delete_all
+  has_many :blacklisted_tokens, dependent: :delete_all
+
   def self.from_omniauth(auth)
     data = auth.info
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
