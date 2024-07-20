@@ -11,24 +11,28 @@ module Api::V0
 
     private
 
+    def success_response(data, status: :ok)
+      render json: { success: true, data: JSON.parse(data) }, status:
+    end
+
     def process_standard_error(exception)
-      render json: { errors: exception.message }, status: :internal_server_error
+      render json: { success: false, errors: [exception.message] }, status: :internal_server_error
     end
 
     def unauthorized_response(reason = 'You are unauthorized to view this resource')
-      render json: { errors: [reason] }, status: :unauthorized
+      render json: { success: false, errors: [reason] }, status: :unauthorized
     end
 
     def not_found_response(reason = 'The requested resource does not exist')
-      render json: { errors: [reason] }, status: :not_found
+      render json: { success: false, errors: [reason] }, status: :not_found
     end
 
     def unprocessable_entity(reason)
-      render json: { errors: [reason] }, status: :unprocessable_entity
+      render json: { success: false, errors: [reason] }, status: :unprocessable_entity
     end
 
     def forbidden_response
-      head :forbidden
+      render json: { success: false, errors: ['forbidden'] }, status: :forbidden
     end
   end
 end
