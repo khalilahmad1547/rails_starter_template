@@ -2,8 +2,8 @@
 
 FactoryBot.define do
   factory :blacklisted_token do
-    jti { 'MyString' }
-    user { nil }
-    exp { '2024-07-20 08:34:56' }
+    jti { SecureRandom.hex }
+    user { create(:user) }
+    exp { Time.now + 1.hour }
   end
 end

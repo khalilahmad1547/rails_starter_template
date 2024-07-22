@@ -2,8 +2,9 @@
 
 FactoryBot.define do
   factory :refresh_token do
-    crypted_token { 'MyString' }
-    user { nil }
-    exp { '2024-07-20 08:38:07' }
+    token { SecureRandom.hex }
+    crypted_token { Digest::SHA256.hexdigest(token) }
+    user { create(:user) }
+    exp { Time.now }
   end
 end
