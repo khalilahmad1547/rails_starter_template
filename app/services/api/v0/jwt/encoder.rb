@@ -33,7 +33,7 @@ module Api::V0::Jwt
     end
 
     def token_expiry
-      token_issued_at + Constants::SESSION_LIFETIME
+      token_issued_at + Constants::SESSION_LIFETIME.to_i
     end
 
     def token_issued_at
