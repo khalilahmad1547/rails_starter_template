@@ -11,7 +11,7 @@ module Api::V0
 
     def signin
       Api::V0::Auth::SigninService.call(params.to_unsafe_h) do |result|
-        result.success { |data| success_response(data, status: :created) }
+        result.success { |data| success_response(data, status: :ok) }
         result.failure { unauthorized_response }
       end
     end
