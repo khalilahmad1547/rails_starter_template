@@ -79,10 +79,7 @@ RSpec.describe '/api/v0/auth', type: :request do
       }
     end
 
-    before do
-      user
-      post '/api/v0/auth/signin', params:
-    end
+    before { post '/api/v0/auth/signin', params: }
 
     describe 'success' do
       context 'when user credential are correct' do
