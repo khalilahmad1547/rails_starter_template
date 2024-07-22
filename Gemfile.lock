@@ -185,6 +185,9 @@ GEM
       reline (>= 0.4.2)
     jaro_winkler (1.6.0)
     json (2.7.2)
+    json_matchers (0.11.1)
+      json_schema
+    json_schema (0.21.0)
     jwt (2.8.2)
       base64
     kramdown (2.4.0)
@@ -459,6 +462,7 @@ DEPENDENCIES
   haml (~> 6.3)
   html2haml
   importmap-rails
+  json_matchers (~> 0.11.1)
   jwt (~> 2.8, >= 2.8.2)
   oj
   omniauth (~> 2.1, >= 2.1.2)
