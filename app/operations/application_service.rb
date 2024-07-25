@@ -38,16 +38,17 @@ module ApplicationService
 
     def validate_params(params)
       @validation_outcome = contract.new.call(params)
-      if validation_outcome.failure?
-        errors = { errors: validation_outcome.errors.full_messages }.to_json
-        return Failure(errors)
-      end
+      return Failure(validation_outcome.errors.to_h) if validation_outcome.failure? # rubocop:disable Rails/DeprecatedActiveModelErrorsMethods
 
       Success(validation_outcome.to_h)
     end
 
     def contract
       self.class.const_get(:Contract)
+    end
+
+    def error_message(key, error)
+      { key => [error] }
     end
   end
 end

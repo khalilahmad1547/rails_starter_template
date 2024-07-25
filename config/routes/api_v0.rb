@@ -2,9 +2,12 @@
 
 namespace :api do
   namespace :v0 do
-    mount_devise_token_auth_for 'User', at: 'auth', controllers: {
-      registrations: 'api/v0/users/registrations'
-    }
     get 'api_status', to: 'example#index'
+
+    scope :auth do
+      post :signup, to: 'auth#signup'
+      post :signin, to: 'auth#signin'
+      post :refresh, to: 'auth#refresh'
+    end
   end
 end

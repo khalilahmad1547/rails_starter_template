@@ -42,7 +42,7 @@ gem 'redis', '>= 4.0.1'
 gem 'rack-cors'
 
 gem 'devise', '~> 4.9'
-gem 'devise_token_auth', '~> 1.2', '>= 1.2.3'
+gem 'jwt', '~> 2.8', '>= 2.8.2'
 gem 'omniauth', '~> 2.1', '>= 2.1.2'
 gem 'omniauth-google-oauth2', '~> 1.1', '>= 1.1.2'
 gem 'omniauth-rails_csrf_protection', '~> 1.0', '>= 1.0.2'
@@ -57,6 +57,7 @@ group :development, :test do
   gem 'debug', platforms: %i[mri windows]
   gem 'factory_bot_rails', '~> 6.4'
   gem 'faker', '~> 3.4'
+  gem 'json_matchers', '~> 0.11.1'
   gem 'rspec-rails', '~> 6.1'
 end
 
