@@ -26,7 +26,8 @@ module Api::V0
       attr_reader :params, :user, :decoded_token
 
       def validate_access_token
-        @decoded_token = Api::V0::Jwt::Decoder.call(access_token: params[:access_token], verify: false)
+        access_token = params[:access_token].split('Bearer ')&.last
+        @decoded_token = Api::V0::Jwt::Decoder.call(access_token:, verify: false)
         return Failure(:unauthorized) if decoded_token.nil?
 
         Success()
@@ -54,7 +55,8 @@ module Api::V0
       end
 
       def new_access_token
-        Api::V0::Jwt::Encoder.call(user).first
+        token = Api::V0::Jwt::Encoder.call(user).first
+        "#{Constants::TOKEN_TYPE} #{token}"
       end
 
       def json_serialize

@@ -46,7 +46,7 @@ module Api::V0
 
       def json_serialize
         {
-          access_token:,
+          access_token: "#{Constants::TOKEN_TYPE} #{access_token}",
           refresh_token:
         }.to_json
       end
