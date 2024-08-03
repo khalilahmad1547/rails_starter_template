@@ -7,7 +7,7 @@ module Api::V0::Jwt
     def blacklist!(jti:, user:)
       user.blacklisted_tokens.create!(
         jti:,
-        exp: Time.now
+        exp: Time.now.utc
       )
     end
 

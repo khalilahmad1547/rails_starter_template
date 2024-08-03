@@ -17,7 +17,7 @@ ActiveRecord::Schema[7.1].define(version: 20_240_720_083_807) do
   create_table 'blacklisted_tokens', force: :cascade do |t|
     t.string 'jti'
     t.bigint 'user_id', null: false
-    t.datetime 'exp', default: '2024-07-20 09:40:46', null: false
+    t.datetime 'exp', default: -> { 'CURRENT_TIMESTAMP' }, null: false
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.index ['jti'], name: 'index_blacklisted_tokens_on_jti', unique: true
@@ -27,7 +27,7 @@ ActiveRecord::Schema[7.1].define(version: 20_240_720_083_807) do
   create_table 'refresh_tokens', force: :cascade do |t|
     t.string 'crypted_token'
     t.bigint 'user_id', null: false
-    t.datetime 'exp', default: '2024-07-20 09:40:47', null: false
+    t.datetime 'exp', default: -> { 'CURRENT_TIMESTAMP' }, null: false
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.index ['crypted_token'], name: 'index_refresh_tokens_on_crypted_token', unique: true

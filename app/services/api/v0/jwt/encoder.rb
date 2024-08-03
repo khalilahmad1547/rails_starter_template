@@ -37,7 +37,7 @@ module Api::V0::Jwt
     end
 
     def token_issued_at
-      Time.current.to_i
+      Time.now.utc.to_i
     end
   end
 end

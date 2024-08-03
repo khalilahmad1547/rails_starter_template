@@ -5,6 +5,6 @@ FactoryBot.define do
     token { SecureRandom.hex }
     crypted_token { Digest::SHA256.hexdigest(token) }
     user { create(:user) }
-    exp { Time.now }
+    exp { Time.now.utc }
   end
 end

@@ -45,7 +45,7 @@ module Api::V0
 
         return Failure(:unauthorized) unless existing_refresh_token
 
-        return Failure(:unauthorized) unless existing_refresh_token.exp > Time.current
+        return Failure(:unauthorized) unless existing_refresh_token.exp > Time.now.utc
 
         Success()
       end
