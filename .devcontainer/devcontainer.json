@@ -9,9 +9,6 @@
         "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
             "packages": "libpq-dev, libvips" // For pg gem
         },
-        "ghcr.io/devcontainers/features/git:1": {
-            "version": "latest"
-        },
         "ghcr.io/devcontainers/features/ruby:1": {
             "version": "3.2.4"
         },
@@ -22,9 +19,9 @@
             "username": "vscode",
             "uid": 1000,
             "gid": 1000,
-            "installZsh": true,
-            "installOhMyZsh": true,
-            "configureZshAsDefaultShell": true,
+            "installZsh": false,
+            "installOhMyZsh": false,
+            "configureZshAsDefaultShell": false,
             "upgradePackages": true
         }
     },
@@ -60,5 +57,5 @@
     // Use 'onCreateCommand' to run commands while the container is creating.
     "onCreateCommand": "gem install solargraph",
     // Use 'postCreateCommand' to run commands after the container is created.
-    "postCreateCommand": "chmod +x .devcontainer/setup.sh && chmod +x .devcontainer/setup.sh"
+    "postCreateCommand": "./bin/setup"
 }
