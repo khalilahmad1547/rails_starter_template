@@ -92,8 +92,8 @@ RSpec.describe '/api/v0/auth', type: :request do
 
   describe '/refresh' do
     let(:user) { create(:user) }
-    let(:token_pair) { Api::V0::Jwt::Issuer.call(user) }
-    let(:access_token) { "#{Constants::TOKEN_TYPE} #{token_pair[:access_token]}" }
+    let(:token_pair) { Jwt::Issuer.call(user) }
+    let(:access_token) { valid_jwt(user) }
     let(:refresh_token) { token_pair[:refresh_token].token }
     let(:headers) do
       {
