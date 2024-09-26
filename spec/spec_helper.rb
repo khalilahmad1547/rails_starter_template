@@ -14,6 +14,15 @@
 # the additional setup, and require it from the spec files that actually need
 # it.
 #
+require 'json_matchers/rspec'
+require 'simplecov'
+JsonMatchers.schema_root = 'spec/support/api/schemas'
+
+# simplecov configs
+SimpleCov.start :rails do
+  enable_coverage :branch
+  add_filter '/spec/'
+end
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
@@ -91,4 +100,12 @@ RSpec.configure do |config|
   #   # test failures related to randomization by passing the same `--seed` value
   #   # as the one that triggered the failure.
   #   Kernel.srand config.seed
+end
+
+def valid_jwt(user)
+  "#{Constants::TOKEN_TYPE} #{Jwt::Encoder.call(user).first}"
+end
+
+def expired_jwt(user)
+  "#{Constants::TOKEN_TYPE} #{Jwt::Encoder.call(user, Time.now.utc.to_i - 1.hour.to_i).first}"
 end
