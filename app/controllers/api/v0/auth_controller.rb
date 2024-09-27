@@ -11,6 +11,13 @@ module Api::V0
       end
     end
 
+    def google_oauth2
+      Api::V0::Auth::GoogleOauth2.call(params.to_unsafe_h) do |result|
+        result.success { |data| success_response(data, status: :created) }
+        result.failure { |errors| unprocessable_entity(errors) }
+      end
+    end
+
     def signin
       Api::V0::Auth::SigninService.call(params.to_unsafe_h) do |result|
         result.success { |data| success_response(data, status: :ok) }
