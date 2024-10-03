@@ -13,6 +13,7 @@ module Api::V0::Auth
     def execute(params)
       @params = params
       fetch_user_info
+      yield validate_user_info
       yield create_user
       Success(json_serialize)
     end
@@ -26,13 +27,22 @@ module Api::V0::Auth
       @google_response = HTTParty.get(url)
     end
 
-    def create_user
-      @user = User.from_omniauth(formate_data) if valid_user?
-      @user ? Success(@user) : Failure(@user.error_messages)
+    def validate_user_info
+      return Failure('uncomplete user info') unless valid_user?
+
+      Success()
     end
 
     def valid_user?
-      google_response['email_verified']
+      google_response['email_verified'] &&
+        google_response['email'] &&
+        google_response['given_name'] &&
+        google_response['family_name']
+    end
+
+    def create_user
+      @user = User.from_omniauth(formate_data)
+      @user ? Success(@user) : Failure(@user.error_messages)
     end
 
     def formate_data
