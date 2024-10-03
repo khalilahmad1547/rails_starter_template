@@ -6,17 +6,49 @@ module Api::V0::Auth
 
     class Contract < ApplicationContract
       params do
-        required(:code).filled(:string)
+        required(:client_id).filled(:string)
       end
     end
 
     def execute(params)
       @params = params
-      Success()
+      fetch_user_info
+      yield create_user
+      Success(json_serialize)
     end
 
     private
 
-    attr_reader :params
+    attr_reader :params, :google_response, :user
+
+    def fetch_user_info
+      url = "https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=#{params['client_id']}"
+      @google_response = HTTParty.get(url)
+    end
+
+    def create_user
+      @user = User.from_omniauth(formate_data) if valid_user?
+      @user ? Success(@user) : Failure(@user.error_messages)
+    end
+
+    def valid_user?
+      google_response['email_verified']
+    end
+
+    def formate_data
+      {
+        info: {
+          provider: 'google',
+          uid: google_response['email'],
+          email: google_response['email'],
+          avatar_url: google_response['picture'],
+          name: "#{google_response['given_name']} #{google_response['family_name']}"
+        }
+      }
+    end
+
+    def json_serialize
+      Api::V0::UsersSerializer.render_as_hash(user)
+    end
   end
 end
