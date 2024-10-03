@@ -277,7 +277,8 @@ Devise.setup do |config|
     prompt: 'select_account',
     image_aspect_ratio: 'square',
     image_size: 50,
-    access_type: 'offline'
+    access_type: 'offline',
+    provider_ignores_state: true
   }
 
   # ==> Warden configuration

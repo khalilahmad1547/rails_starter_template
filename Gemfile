@@ -55,6 +55,9 @@ gem 'bootsnap', require: false
 
 # gem "image_processing", "~> 1.2"
 
+# http requests
+gem 'httparty', '~> 0.22.0'
+
 group :development, :test do
   gem 'debug', platforms: %i[mri windows]
   gem 'factory_bot_rails', '~> 6.4'

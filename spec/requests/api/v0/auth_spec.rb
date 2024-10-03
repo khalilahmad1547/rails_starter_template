@@ -117,4 +117,25 @@ RSpec.describe '/api/v0/auth', type: :request do
       end
     end
   end
+
+  describe 'google_oauth2' do
+    #   { 'iss' => 'https://accounts.google.com',
+    #     'azp' => '114388269919-bo8c4r47so77fqp4all8k0bbbk756ihj.apps.googleusercontent.com',
+    #     'aud' => '114388269919-bo8c4r47so77fqp4all8k0bbbk756ihj.apps.googleusercontent.com',
+    #     'sub' => '110285926963282224306',
+    #     'email' => 'khalil.ahmad1547@gmail.com',
+    #     'email_verified' => 'true',
+    #     'nbf' => '1727952702',
+    #     'name' => 'Abdur Rahman',
+    #     'picture' =>
+    # 'https://lh3.googleusercontent.com/a/ACg8ocL2nkJrjbqLfk-jRu6fgo-B_y-UnnKXQldwWPC3nxjJ-9j1N0A=s96-c',
+    #     'given_name' => 'Abdur',
+    #     'family_name' => 'Rahman',
+    #     'iat' => '1727953002',
+    #     'exp' => '1727956602',
+    #     'jti' => '4f6d7cdca6b6bcc320eb4b369410dea3a844ebd5',
+    #     'alg' => 'RS256',
+    #     'kid' => '28a421cafbe3dd889271df900f4bbf16db5c24d4',
+    #     'typ' => 'JWT' }
+  end
 end
