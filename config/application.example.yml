@@ -2,7 +2,7 @@ development:
   PORT: "3000"
   DB_USERNAME: postgres
   DB_PASSWORD: postgres
-  DB_NAME: rails_starter_template_dev
+  DB_NAME_DEV: rails_starter_template_dev
   DB_HOST: localhost
   DB_PORT: "5432"
   REDIS_URL: redis://localhost:6379/1
@@ -11,5 +11,9 @@ development:
   DOMAIN: localhost:3000
   SMTP_USER_NAME: user_name
   SMTP_PASSWORD: user_name
+  # Stripe
   STRIPE_PUBLISHABLE_KEY: ''
   STRIPE_SECRET_KEY: ''
+  # google OAuth2
+  GOOGLE_CLIENT_ID: 'google omni auth client id'
+  GOOGLE_CLIENT_SECRET: 'google omni auth client secret'

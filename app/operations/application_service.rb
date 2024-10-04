@@ -19,6 +19,7 @@ module ApplicationService
 
   module InstanceMethods
     include Dry::Monads[:result, :do]
+    include Pagy::Backend
     ValidationError = Class.new(StandardError)
 
     class Contract
@@ -38,16 +39,24 @@ module ApplicationService
 
     def validate_params(params)
       @validation_outcome = contract.new.call(params)
-      if validation_outcome.failure?
-        errors = { errors: validation_outcome.errors.full_messages }.to_json
-        return Failure(errors)
-      end
+      return Failure(validation_outcome.errors.to_h) if validation_outcome.failure? # rubocop:disable Rails/DeprecatedActiveModelErrorsMethods
 
       Success(validation_outcome.to_h)
     end
 
     def contract
       self.class.const_get(:Contract)
+    end
+
+    def error_message(key, error)
+      { key => [error] }
+    end
+
+    def paginate(records, page, per_page)
+      page_no = page || Constants::DEFAULT_PAGE
+      per_page_no = per_page || Constants::DEFAULT_PER_PAGE
+      _, items = pagy(records, page: page_no, limit: per_page_no)
+      items
     end
   end
 end

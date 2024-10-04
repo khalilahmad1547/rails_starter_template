@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 ruby '3.2.4'
 
-gem 'rails', '~> 7.1.3'
+gem 'rails', '~> 7.2.1'
 
 gem 'sprockets-rails'
 
@@ -24,7 +24,7 @@ gem 'dry-monads', '~> 1.6'
 gem 'dry-validation', '~> 1.10'
 
 # for JSON responce
-gem 'blueprinter', '~> 1.0.2'
+gem 'blueprinter', '~> 1.1.0'
 gem 'oj'
 
 gem 'turbo-rails'
@@ -34,15 +34,20 @@ gem 'stimulus-rails'
 # for file storage
 gem 'shrine', '~> 3.6'
 
-gem 'sidekiq', '~> 7.2'
+gem 'sidekiq', '~> 7.3'
 
 gem 'redis', '>= 4.0.1'
 # gem "kredis"
 
 gem 'rack-cors'
 
+gem 'pagy', '~> 9.0', '>= 9.0.5'
+
 gem 'devise', '~> 4.9'
-gem 'devise_token_auth', '~> 1.2', '>= 1.2.3'
+gem 'jwt', '~> 2.8', '>= 2.8.2'
+gem 'omniauth', '~> 2.1', '>= 2.1.2'
+gem 'omniauth-google-oauth2', '~> 1.1'
+gem 'omniauth-rails_csrf_protection', '~> 1.0', '>= 1.0.2'
 
 gem 'tzinfo-data'
 
@@ -53,14 +58,21 @@ gem 'stripe', '~> 11.6'
 
 # gem "image_processing", "~> 1.2"
 
+# http requests
+gem 'httparty', '~> 0.22.0'
+
 group :development, :test do
   gem 'debug', platforms: %i[mri windows]
   gem 'factory_bot_rails', '~> 6.4'
   gem 'faker', '~> 3.4'
-  gem 'rspec-rails', '~> 6.1'
+  gem 'json_matchers', '~> 0.11.1'
+  gem 'rspec-rails', '~> 7.0'
+  gem 'simplecov', require: false
 end
 
 group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'html2haml'
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
