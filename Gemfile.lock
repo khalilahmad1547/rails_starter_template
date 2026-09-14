@@ -147,7 +147,7 @@ GEM
       concurrent-ruby (~> 1.0)
       dry-core (~> 1.1)
       zeitwerk (~> 2.6)
-    dry-monads (1.10.0)
+    dry-monads (1.11.0)
       concurrent-ruby (~> 1.0)
       dry-core (~> 1.1)
       zeitwerk (~> 2.6)
@@ -576,7 +576,7 @@ DEPENDENCIES
   database_cleaner-active_record (~> 2.2)
   debug
   devise (~> 5.0)
-  dry-monads (~> 1.10)
+  dry-monads (~> 1.11)
   dry-validation (~> 1.10)
   factory_bot_rails (~> 6.4)
   faker (~> 3.8)
